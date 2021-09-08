@@ -1,2 +1,5 @@
 *.svg
+.svg
 comp1
+comp1/
+comp1\
