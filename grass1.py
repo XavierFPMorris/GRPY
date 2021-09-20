@@ -1,3 +1,5 @@
+# A script to investigate different initial four-vectors for massive and massless particles in the Schwarszchild metric
+
 #%%
 from scipy.integrate import odeint
 import numpy as np 
