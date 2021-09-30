@@ -1,8 +1,8 @@
 #%%
 from scipy.integrate import quad
 import numpy as np
+from scipy.optimize import fsolve
 import matplotlib.pyplot as plt
-import scipy.optimize as so
 
 #%%
 print('''
@@ -18,7 +18,7 @@ def findZ(input_r):
     return y - np.pi/2
 
 
-r_0 = so.fsolve(findZ, 5)[0]
+r_0 = fsolve(findZ, 5)[0]
 
 print('r_0 = {:.2f}'.format(r_0))
 
@@ -48,3 +48,19 @@ Question 1 d
 t_flat_segment = np.sqrt(r_0**2 + r_1**2)
 print('Travel Time Flat: {:.2f}'.format(t_flat_segment*4))
 print('Flat < Schwarzschild: {}'.format(t_flat_segment*4 < - t_0 + t_1 - t_2 + t_3))
+
+#%%
+print('''
+Question 3 d
+''')
+
+R = 10
+m = 1
+w_s = 1
+r = np.arange(100,10.1, -0.1)
+w_r = (1 + np.sqrt(2*m/r))*(r/(r-2*m))*np.sqrt(1 - 2*m/R)
+
+plt.plot(r, w_r)
+plt.xlabel('r')
+plt.ylabel(r'$\omega_r$')
+# %%
